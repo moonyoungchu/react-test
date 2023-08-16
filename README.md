@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# React test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Section 1
 
-## Available Scripts
+### TDD(test driven development)
 
-In the project directory, you can run:
+- "테스트를 먼저 작성하고 코드를 나중에 작성하라”
+- 코드 짜기 전에 테스트케이스부터 작성 → 테스트 통과하도록 코드 작성 → 리팩토링
 
-### `npm start`
+## Section2
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Simple App
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```tsx
+import { render, screen, fireEvent } from "@testing-library/react";
+```
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- fireEvent
+    - 버튼 클릭, 폼 제출 등 가상 이벤트 트리거 시뮬레이션
+- jest-dom assertions:
+    - toBeEnabled() :선택한 요소가 활성화되어 있는지 확인 (예: 버튼이 클릭 가능한 상태)
+    - toBeDisabled() : 선택한 요소가 비활성화되어 있는지 확인(예: 비활성화된 입력 필드)
+    - toBeChecked() : 선택한 체크박스나 라디오 버튼이 체크된 상태인지 확인
+- getByRole option {name: }
+    - 특정 역할(role)을 가진 DOM 요소를 선택하는 메서드
+    - 라벨링이나 설명을 가진 요소를 찾을 때 유용
+- https://github.com/testing-library/jest-dom
+- https://testing-library.com/docs/react-testing-library/intro
